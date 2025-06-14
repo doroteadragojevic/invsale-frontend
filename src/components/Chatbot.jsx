@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/Chatbot.css";
 
 const MAX_QUESTION_LENGTH = 200;
+const CHATBOT_URL = process.env.REACT_APP_CHATBOT_URL;
 
 const Chatbot = () => {
   const [question, setQuestion] = useState("");
@@ -32,7 +33,7 @@ const Chatbot = () => {
     }
 
     try {
-      const response = await fetch(`http://127.0.0.1:5000/ask?question=${question}`);
+      const response = await fetch(`${CHATBOT_URL}/ask?question=${question}`);
       const data = await response.json();
       setAnswer(data.answer);
     } catch (err) {
