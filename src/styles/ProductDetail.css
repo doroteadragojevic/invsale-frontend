@@ -1,0 +1,143 @@
+.product-detail-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .product-detail-container h2, .product-detail-container h3 {
+    color: #333;
+  }
+  
+  .product-detail-main {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  .product-image {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-image img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .product-info input[type="text"],.product-info input[type="number"],  .product-info textarea, .product-info select{
+    font-family: "Montserrat", sans-serif;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  margin-bottom: 8px;
+  width: 80%;
+  box-sizing: border-box;
+  }
+
+  .product-info textarea {
+  resize: vertical; /* Omogućava promjenu visine */
+  max-width: 100%;
+  margin-bottom: 0;
+  overflow-wrap: break-word; /* Razbijanje dugih riječi */
+  box-sizing: border-box; /* Uklanja preljevanje */
+}
+  
+  .price {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .quantity-cart {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  
+  .quantity-cart select {
+    width: 100px;
+    padding: 5px;
+  }
+  
+  .quantity-cart button {
+    padding: 8px 16px;
+    background-color: #687616;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+  
+  .quantity-cart button:hover {
+    background-color: #373737;
+  }
+  
+  .product-description {
+    margin-top: 20px;
+  }
+  
+  .product-rating {
+    margin-top: 20px;
+  }
+  
+  .stars {
+    font-size: 18px;
+    color: gold;
+  }
+  
+  .product-ratings {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+  }
+
+  .manufacturer {
+    font-size: 0.95rem;
+    color: #666;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+
+  .stars {
+    color: rgb(255, 200, 0);
+  }
+  
+  .ratings-list {
+    margin-top: 10px;
+  }
+  
+  .review-item {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+    display: flex;
+  }
+  
+  .product-info-rating {
+    font-style: italic;
+    color: #333;
+    margin-top: 5px;
+  }
+
+  .review-item p{
+    font-style: italic;
+    color: #555;
+    margin-top: 5px;
+    margin-left: 50px;
+  }
+  
+
+  
+  

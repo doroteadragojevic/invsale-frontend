@@ -1,0 +1,48 @@
+.home-container-pl {
+  display:grid;
+font-family: "Montserrat", sans-serif;
+width: 1500px;
+margin: 20px auto;
+}
+
+.pl-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pl-table th, .pl-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #dddddd;
+  border-left: none;
+  border-right: none;
+}
+
+.pl-table th {
+  background-color: #fdfdfd;
+}
+
+.pl-table th {
+    background-color: transparent; /* Uklonjena siva boja */
+    color: #444;
+    background: transparent;
+    border-top: none;
+  }
+  
+  .pl-table tr:last-child td {
+    border-bottom: none; /* Uklanja donju crtu zadnjeg reda */
+  }
+
+  .home-container-pl input[type="text"],.home-container-pl input[type="number"],.home-container-pl input[type="datetime-local"] {
+    font-family: "Montserrat", sans-serif;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  margin-bottom: 8px;
+  width: 80%;
+  }
+
+  .home-container-pl h2 {
+    color: #333;
+  }

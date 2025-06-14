@@ -1,0 +1,134 @@
+/* Units.css */
+
+
+  
+  /* Forma za kreiranje nove jedinice */
+  .create-unit-form {
+    display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-direction: column;
+  width: 450px; /* fiksna širina forme, možeš prilagoditi */
+  margin: 20px 50px; 
+  }
+  
+  .unit-input {
+    font-family: "Montserrat", sans-serif;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  margin-bottom: 8px;
+  width: 100%; 
+  }
+  
+  /* Glavni odjeljak za prikaz jedinica */
+  .units {
+    margin-top: 20px;
+    font-family: "Montserrat", sans-serif;
+    
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .units-title {
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Tablica za prikaz jedinica */
+  .units-table {
+    width: 100%;
+  border-collapse: collapse;
+  }
+  
+  .units-table th, .units-table td {
+    padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #dddddd;
+  border-left: none;
+  border-right: none;
+  }
+  
+  .units-table th {
+    background-color: #fdfdfd;
+  }
+  
+  .units-table th {
+    background-color: transparent; /* Uklonjena siva boja */
+    color: #444;
+    background: transparent;
+    border-top: none;
+  }
+
+  .units-table tr:last-child td {
+    border-bottom: none; /* Uklanja donju crtu zadnjeg reda */
+  }
+  
+  .units-table td input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .delete-button-u {
+    background-color: rgba(172, 0, 0, 0.7);
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+    margin-bottom: 10px;
+
+  margin-right: auto;
+  font-weight: 100;
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+  }
+
+  .delete-button-c:hover {
+    background-color: rgba(172, 0, 0, 0.8);
+  }
+
+  .save-button-u {
+    background-color: #373737;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 100;
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+  }
+  
+  .save-button-u:hover {
+    background-color: #687616;
+  }
+  
+  /* Stil za "Name" link */
+  .units-table td strong {
+    cursor: pointer;
+    color: #2196F3;
+  }
+  
+  .units-table td strong:hover {
+    text-decoration: underline;
+  }
+  

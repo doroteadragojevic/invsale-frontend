@@ -1,0 +1,101 @@
+.review-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .review-container h2 {
+    color: #333;
+  }
+  
+  .order-review textarea {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+  
+  .review-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .review-table th, .review-table td {
+    padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #dddddd;
+  border-left: none;
+  border-right: none;
+  }
+
+  .review-table th {
+    background-color: transparent; /* Uklonjena siva boja */
+    color: #444;
+    background: transparent;
+    border-top: none;
+  }
+
+  .review-table td {
+    font-size: 14px;
+  }
+
+  .review-table td select{
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .review-table td select:focus {
+    border-color: #4CAF50;
+  }
+  
+  .review-table tr:last-child td {
+    border-bottom: none; /* Uklanja donju crtu zadnjeg reda */
+  }
+  .add-review-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .add-review-btn:hover {
+    background-color: #687616;
+  }
+
+  .rating-circle-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.rating-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.rating-circle:hover {
+  border-color: #999;
+}
+
+.rating-circle.active {
+  border: 2px solid #ffd500;
+  background-color: #fffae6;
+  font-weight: bold;
+}
+
+  

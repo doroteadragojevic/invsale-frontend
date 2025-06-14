@@ -1,0 +1,191 @@
+.orders-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: "Montserrat", sans-serif;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .orders-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .orders-table th,
+  .orders-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .orders-table th {
+    background-color: #f4f4f4;
+    color: #444;
+  }
+  
+  .orders-table tr:hover {
+    background-color: #e2e2e2;
+  }
+  
+  .status {
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    text-transform: capitalize;
+  }
+  
+  .status-shipped {
+    color: green;
+  }
+  
+  .status-placed {
+    color: orange;
+  }
+  
+  .status-cancelled {
+    color: red;
+  }
+
+  .status-delivered {
+    color: blue;
+  }
+  
+  @media (max-width: 768px) {
+    .orders-table th,
+    .orders-table td {
+      padding: 8px;
+      font-size: 14px;
+    }
+  
+    .orders-container {
+      padding: 10px;
+    }
+  }
+
+  .order-details-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    margin-top: 10px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-details-container h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .order-details-container p {
+    margin: 0.5rem 0;
+    font-size: 16px;
+  }
+  
+  .change-status-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #373737;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: block;       /* uzima širinu koliko treba */
+  margin-left: 0;
+  }
+  
+  .change-status-btn:hover {
+    background-color: #687616;
+  }
+
+  .order-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  .order-items-table th,
+  .order-items-table td {
+    padding: 12px 16px;
+  text-align: center;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #dddddd;
+  }
+  
+  .order-items-table th {
+    background-color: transparent; /* Uklonjena siva boja */
+    color: #444;
+    background: transparent;
+  }
+
+  .order-items-table tr:last-child td {
+    border-bottom: none; /* Uklanja donju crtu zadnjeg reda */
+  }
+  
+  .filter-container {
+    margin-bottom: 1rem;
+  }
+  
+  #status-filter {
+    margin-left: 0.5rem;
+    padding: 0.3rem;
+  }
+
+  .add-review-btn-o {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #373737;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    display: block;       /* uzima širinu koliko treba */
+  margin-left: 0;
+  }
+  
+  .add-review-btn-o:hover {
+    background-color: #687616;
+  }
+
+  .download-pdf-btn {
+    margin-top: 10px;
+    padding: 8px 14px;
+    background-color: #373737;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;       /* uzima širinu koliko treba */
+  margin-left: 0;
+  }
+  
+  .download-pdf-btn:hover {
+    background-color: #687616;
+  }
+
+  .clickable-row {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .clickable-row:hover {
+    background-color: #333;
+  }
+  
+  
+  
+  
+  

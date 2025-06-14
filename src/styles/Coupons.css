@@ -1,0 +1,180 @@
+/* Osnovni stilovi za formu */
+.home-container-coupons {
+    display: flex;
+flex-direction: row-reverse;
+font-family: "Montserrat", sans-serif;
+  }
+  
+  /* Stilovi za formu za kreiranje novog kupona */
+  .create-coupon-form {
+    display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-direction: column;
+  width: 450px; /* fiksna širina forme, možeš prilagoditi */
+  margin: 20px 50px; 
+  }
+
+  .create-coupon-form p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .coupon-input {
+    font-family: "Montserrat", sans-serif;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  margin-bottom: 8px;
+  width: 100%; 
+  }
+  
+  .coupon-input:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  /* Stil za gumb za kreiranje novog kupona */
+  .create-new-button {
+    padding: 8px 16px;
+  background-color: #373737;
+  font-size: 0.9rem;
+    font-weight: 100;
+  color: white;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  }
+  
+  .create-new-button:hover {
+    background-color: #687616;
+  }
+  
+  .create-new-button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
+  /* Stil za tablicu kupona */
+  .coupons {
+    width: 1500px;
+  margin: 20px 50px;
+  padding: 20px;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Montserrat", sans-serif;
+  }
+  
+  .coupons-title {
+    text-align: center;
+    color: #333;
+  }
+  
+  .coupons-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .coupons-table th,
+  .coupons-table td {
+    padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #dddddd;
+  border-left: none;
+  border-right: none;
+  }
+  
+  .coupons-table th {
+    background-color: transparent; /* Uklonjena siva boja */
+    color: #444;
+    background: transparent;
+    border-top: none;
+  }
+  
+  .coupons-table td {
+    font-size: 14px;
+  }
+  
+  .coupons-table td input {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .coupons-table td input:focus {
+    border-color: #4CAF50;
+  }
+
+  .coupons-table tr:last-child td {
+    border-bottom: none; /* Uklanja donju crtu zadnjeg reda */
+  }
+
+  
+  .save-button {
+    background-color: #373737;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 100;
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+  }
+  
+  .save-button:hover {
+    background-color: #687616;
+  }
+  
+  .delete-button {
+    background-color: rgba(172, 0, 0, 0.7);
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+    margin-bottom: 10px;
+
+  margin-right: auto;
+  font-weight: 100;
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+  }
+  
+  .delete-button:hover {
+    background-color: rgba(172, 0, 0, 0.8);
+  }
+  
+  /* Stil za ikonu brisanja */
+  .delete-button .fa-trash {
+    font-size: 16px;
+  }
+  
+  /* Stil za inpute u tablici */
+  .description-input {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .description-input:focus {
+    border-color: #4CAF50;
+  }
+  
