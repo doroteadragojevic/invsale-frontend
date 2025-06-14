@@ -18,12 +18,12 @@ import Checkout from "./components/Checkout";
 import Orders from "./components/Orders";
 import OrderDetails from "./components/OrderDetails";
 import Review from "./components/Review";
-import OrderReviews from "./components/OrderReviews";
 import ForYouPage from "./components/ForyouPage";
 import Stats from "./components/Stats";
 import Warehouse from "./components/Warehouse";
 import FAQ from "./components/FAQ";
 import View from "./components/home2";
+import OrderReviews2 from "./components/OrderReviews2";
 
 function App() {
   const user = JSON.parse(localStorage.getItem('user') || '{}');
