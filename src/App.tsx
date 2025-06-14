@@ -57,7 +57,7 @@ function App() {
       <Route path="/manufacturers" element={user.isAuthenticated && user.role === 'admin' ? <Manufacturers /> : <Navigate to="/login"/>}/>
       <Route path="/prices" element={user.isAuthenticated && user.role === 'admin' ? <PriceList /> : <Navigate to="/login"/>}/>
       <Route path="/coupons" element={user.isAuthenticated && user.role === 'admin' ? <Coupons /> : <Navigate to="/login"/>}/>
-      <Route path="/reviews" element={user.isAuthenticated && user.role === 'admin' ? <OrderReviews /> : <Navigate to="/login"/>}/>
+      <Route path="/reviews" element={user.isAuthenticated && user.role === 'admin' ? <OrderReviews2 /> : <Navigate to="/login"/>}/>
       <Route path="/stats" element={user.isAuthenticated && user.role === 'admin' ? <Stats /> : <Navigate to="/login"/>}/>
       <Route path="/skladiste" element={user.isAuthenticated && user.role === 'admin' ? <Warehouse /> : <Navigate to="/login"/>}/>
       <Route path="/FAQ" element={user.isAuthenticated && user.role === 'admin' ? <FAQ /> : <Navigate to="/login"/>}/>

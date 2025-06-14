@@ -71,7 +71,6 @@ export default function OrderReviews() {
 
   return (
     <div>
-      {isAdmin && (<AdminHeader />)}
     <div className="reviews-container">
       <h2>Order Reviews</h2>
       <table className="reviews-table">
