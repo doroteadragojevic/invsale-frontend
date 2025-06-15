@@ -223,7 +223,7 @@ const OrderDetails: React.FC = () => {
             <div style={{ marginTop: '20px' }}>
               <button
                 className="add-review-btn-o"
-                onClick={() => window.location.href = `/review?orderId=${order.idOrder}`}
+                onClick={() => window.location.href = `/#/review?orderId=${order.idOrder}`}
               >
                 ADD REVIEW
               </button>

@@ -21,8 +21,11 @@ const UserOrders: React.FC = () => {
       try {
         const res = await fetch(`${apiUrl}/orders/${email}`);
         const data = await res.json();
-const sortedData = data.sort((a: Order, b: Order) => new Date(b.orderTimestamp).getTime() - new Date(a.orderTimestamp).getTime());
-setOrders(sortedData);
+const filteredData = data
+  .filter((order: Order) => order.orderStatusName.toUpperCase() !== "IN_PROGRESS")
+  .sort((a: Order, b: Order) => new Date(b.orderTimestamp).getTime() - new Date(a.orderTimestamp).getTime());
+
+setOrders(filteredData);
       } catch (err) {
         console.error("Error fetching orders:", err);
       }
