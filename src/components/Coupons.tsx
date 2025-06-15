@@ -289,13 +289,8 @@ const Coupons = () => {
                       className="coupon-input"
                     />
                   </td>
-                  <td>
-                    <input
-                      type="number"
-                      value={editedCoupons[coupon.code]?.discount ?? coupon.discount}
-                      onChange={(e) => handleCouponChange(coupon.code, 'discount', Number(e.target.value))}
-                      className="coupon-input"
-                    />
+                  <td >
+                    {coupon.discount}
                   </td>
                   <td>
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: 0, marginBottom: '8px', marginLeft: '10px' }}>
