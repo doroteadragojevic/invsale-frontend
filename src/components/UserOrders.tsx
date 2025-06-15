@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/orders.css';
 
 interface Order {
@@ -63,12 +63,11 @@ setOrders(sortedData);
     <div>
       <header>
   <div className="logo">
-  <a href="/">
-  <img src="/olive3.png" alt="Logo" className="logo-image" />
-    </a>
-    <a href="/fyp">FOR YOU</a>
-    <a href="/">SHOP</a>
-    <a href="/orders">MY ORDERS</a>
+  <Link to="/">
+    <img src="/olive3.png" alt="Logo" className="logo-image" /></Link>
+    <Link to="/fyp">FOR YOU</Link>
+    <Link to="/">SHOP</Link>
+    <Link to="/orders">MY ORDERS</Link>
   </div>
 </header>
 

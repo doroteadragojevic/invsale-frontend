@@ -281,9 +281,9 @@ export default function Home() {
     <div className="body">
       <header>
   <div className="logo">
-  <a href="/#/">
-  <img src="/olive3.png" alt="Logo" className="logo-image" />
-    </a>
+    <Link to="/">
+    <img src="/olive3.png" alt="Logo" className="logo-image" /></Link>
+  
     <Link to="/fyp">FYP</Link>
     <Link to="/">SHOP</Link>
     <Link to="/orders">MY ORDERS</Link>

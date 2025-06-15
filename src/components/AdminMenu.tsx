@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/adminMenu.css"; // CSS za stilizaciju
 
 const AdminHeader: React.FC = () => {
@@ -28,9 +28,10 @@ const AdminHeader: React.FC = () => {
   return (
 
 <header className="admin-header">
-  <a href="/admin">
+  <Link to="/admin">
     <img src="/olive3.png" alt="Admin Logo" className="logo-image" />
-  </a>
+  </Link>
+  
 <div className="admin-logo">
   
   {links.map((link, index) => (

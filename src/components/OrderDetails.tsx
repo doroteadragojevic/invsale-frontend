@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import '../styles/orders.css';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -196,12 +196,11 @@ const OrderDetails: React.FC = () => {
         <>
         <header>
   <div className="logo">
-  <a href="/">
-  <img src="/olive3.png" alt="Logo" className="logo-image" />
-    </a>
-    <a href="/fyp">FYP</a>
-    <a href="/">SHOP</a>
-    <a href="/orders">MY ORDERS</a>
+  <Link to="/">
+    <img src="/olive3.png" alt="Logo" className="logo-image" /></Link>
+    <Link to="/fyp">FOR YOU</Link>
+    <Link to="/">SHOP</Link>
+    <Link to="/orders">MY ORDERS</Link>
   </div>
 </header>
       

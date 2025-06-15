@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../styles/home.css';
 import OrderReviews from './OrderReviews';
 import ChatbotPopup from './ChatbotPopup.js';
@@ -281,12 +281,12 @@ export default function View() {
     <div className="body">
       <header>
   <div className="logo">
-  <a href="/">
-  <img src="/olive3.png" alt="Logo" className="logo-image" />
-    </a>
-    <a href="/fyp">FYP</a>
-    <a href="/">SHOP</a>
-    <a href="/orders">MY ORDERS</a>
+    <Link to="/fyp">
+      <img src="/olive3.png" alt="Logo" className="logo-image" />
+    </Link>
+    <Link to="/fyp">FOR YOU</Link>
+    <Link to="/">SHOP</Link>
+    <Link to="/orders">MY ORDERS</Link>
   </div>
 </header>
       
