@@ -284,7 +284,7 @@ export default function Home() {
     <Link to="/">
     <img src="/olive3.png" alt="Logo" className="logo-image" /></Link>
   
-    <Link to="/fyp">FYP</Link>
+    <Link to="/fyp">FOR YOU</Link>
     <Link to="/">SHOP</Link>
     <Link to="/orders">MY ORDERS</Link>
   </div>
