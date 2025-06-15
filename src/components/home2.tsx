@@ -82,7 +82,10 @@ export default function View() {
           data.map(async (product: any) => {
             const pricePromise = fetch(`${apiUrl}/products/price/${product.idProduct}`).then(res => res.json());
             const discountPromise = fetch(`${apiUrl}/products/discount/${product.idProduct}`).then(res => res.json());
-            const reservedPromise = fetch(`${apiUrl}/products/reserved/${product.idProduct}`)
+            const unitRes = await fetch(`${apiUrl}/products/basicUnit/${product.idProduct}`);
+            const unitData = await unitRes.json();
+            const unitId = unitData.idUnit;
+            const reservedPromise = fetch(`${apiUrl}/products/reserved/${product.idProduct}/${unitId}`)
               .then(res => res.json())
               .then((reserved: any) => reserved);
 
