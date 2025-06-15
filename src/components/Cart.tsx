@@ -38,6 +38,10 @@ export default function Cart() {
   useEffect(() => {
     const loadCartData = async () => {
       try {
+        const savedCoupon = localStorage.getItem("appliedCoupon");
+if (savedCoupon) {
+  setCoupon(savedCoupon);
+}
         // Dohvati aktivnu narudžbu korisnika
         const activeOrderRes = await fetch(`${apiUrl}/orders/cart/${email}`);
         if (!activeOrderRes.ok) {
@@ -104,25 +108,33 @@ export default function Cart() {
   };
 
   const handleRemoveItem = async (orderItemId: number) => {
-    try {
-      const res = await fetch(`${apiUrl}/orderItem/${orderItemId}`, { method: "DELETE" });
-      if (!res.ok) throw new Error('Error deleting item');
+  try {
+    const removedItem = orderItems.find(i => i.idOrderItem === orderItemId);
+    const remainingItems = orderItems.filter(item => item.idOrderItem !== orderItemId);
 
-      const removedItem = orderItems.find(i => i.idOrderItem === orderItemId);
-      setOrderItems(prev => prev.filter(item => item.idOrderItem !== orderItemId));
-      setPrices(prev => {
-        const updated = { ...prev };
-        delete updated[orderItemId];
-        return updated;
-      });
-      if (removedItem) {
-        fetchTotalPrice(idOrder);
-        //setTotalPrice(prev => prev - (prices[orderItemId] || 0) * removedItem.quantity);
-      }
-    } catch (err) {
-      console.error("Error deleting item: ", err);
+    // Ako će KOŠARICA POSTATI PRAZNA, prvo ukloni kupon
+    if (remainingItems.length === 0 && coupon !== '') {
+      await clearCoupon(coupon);
     }
-  };
+
+    // Ukloni stavku iz narudžbe
+    const res = await fetch(`${apiUrl}/orderItem/${orderItemId}`, { method: "DELETE" });
+    if (!res.ok) throw new Error('Error deleting item');
+
+    setOrderItems(remainingItems);
+
+    setPrices(prev => {
+      const updated = { ...prev };
+      delete updated[orderItemId];
+      return updated;
+    });
+
+    fetchTotalPrice(idOrder);
+  } catch (err) {
+    console.error("Error deleting item: ", err);
+  }
+};
+
 
   const handleCouponChange = (value: string) => {
       // Provjera duljine i formata kupona
@@ -153,6 +165,8 @@ export default function Cart() {
         }
         return;
       }
+
+      localStorage.setItem("appliedCoupon", code);
   
       const newOrderInfo = await res.json();
       setTotalPrice(newOrderInfo.totalPrice);
@@ -167,6 +181,7 @@ export default function Cart() {
     try {
       const res = await fetch(`${apiUrl}/orders/${idOrder}/remove/${code}`, { method: "PUT" });
       if (!res.ok) throw new Error('Error removing coupon.');
+      localStorage.removeItem("appliedCoupon");
       const newOrderInfo = await res.json();
       setTotalPrice(newOrderInfo.totalPrice);
       setCoupon('');
