@@ -12,6 +12,7 @@ interface Order {
 const Checkout: React.FC = () => {
   const [order, setOrder] = useState<Order | null>(null);
   const [idOrder, setIdOrder] = useState<number>(0);
+  const [fullName, setFullName] = useState('');
   const [street, setStreet] = useState('');
   const [city, setCity] = useState('');
   const [country, setCountry] = useState('');
@@ -46,7 +47,13 @@ const Checkout: React.FC = () => {
 
   // Validacija unosa
   const validateInputs = () => {
-    const newErrors: { street?: string; city?: string } = {};
+    const newErrors: { street?: string; city?: string; fullName?: string } = {};
+
+if (fullName.trim().length === 0) {
+  newErrors.fullName = "Required.";
+} else if (fullName.length > 100) {
+  newErrors.fullName = "Too long.";
+}
 
     if (street.length > 80) {
       newErrors.street = "Too long.";
@@ -75,7 +82,7 @@ const Checkout: React.FC = () => {
       }
     };
 
-    const fullAddress = `${street}, ${city}, ${country}`;
+    const fullAddress = `${fullName}, ${street}, ${city}, ${country}`;
 
     const dto = {
       idOrder: order.idOrder,
@@ -111,7 +118,17 @@ const Checkout: React.FC = () => {
         <>
           <p className='total-price'><strong>Total:</strong> {order.totalPrice} €</p>
 
+            <div>
+            <label>Full name:</label><br />
+            <input
+              type="text"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              />
+              {errors.fullName && <p className="error-text">{errors.fullName}</p>}
+            </div>
           <div>
+            
             <label>Street:</label><br />
             <input
               type="text"
@@ -156,13 +173,14 @@ const Checkout: React.FC = () => {
           <button
             onClick={handlePlaceOrder}
             disabled={
-              isSubmitting ||
-              !street.trim() ||
-              !city.trim() ||
-              !country ||
-              !paymentMethod ||
-              Object.keys(errors).length > 0
-            }
+  isSubmitting ||
+  !fullName.trim() ||
+  !street.trim() ||
+  !city.trim() ||
+  !country ||
+  !paymentMethod ||
+  Object.keys(errors).length > 0
+}
           >
             {isSubmitting ? 'Pending...' : 'Place order'}
           </button>
