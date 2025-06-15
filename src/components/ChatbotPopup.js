@@ -19,7 +19,7 @@ const ChatbotPopup = () => {
         onClick={toggleChatbot}
         style={styles.button}
       >
-        FAQ
+        ASK A QUESTION
       </button>
 
       {/* Chatbot popup */}
