@@ -29,13 +29,12 @@ function App() {
   const user = JSON.parse(localStorage.getItem('user') || '{}');
   return (
     <Routes>
-      
-      <Route path="/home" element={<View />} />
+
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
       <Route path="/fyp" element={user.isAuthenticated && user.role === 'user' ? <ForYouPage /> : <Navigate to="/login"/>}/> 
-      <Route path="/" element={user.isAuthenticated && user.role === 'user' ? <Home /> : <Navigate to="/login"/>}/> 
+      <Route path="/" element={user.isAuthenticated && user.role === 'user' ? <Home /> : <View/>}/> 
       <Route path="/product" element={<ProductDetail /> }/> 
       <Route path="/cart" element={user.isAuthenticated && user.role === 'user' ? <Cart /> : <Navigate to="/login"/>}/> 
       <Route path="/checkout" element={user.isAuthenticated && user.role === 'user' ? <Checkout /> : <Navigate to="/login"/>}/>
