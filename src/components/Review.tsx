@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom'; // dodaj useNavigate
 import "../styles/review.css";
 
 interface OrderItem {
@@ -24,6 +24,8 @@ const Review: React.FC = () => {
 
   const apiUrl = process.env.REACT_APP_API_URL;
   const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchOrderItems = async () => {
@@ -88,6 +90,7 @@ const Review: React.FC = () => {
       }
 
       alert('Review added successfuly!');
+      navigate('/orders');
     } catch (err) {
       console.error('Error sending reviewa:', err);
       alert('Error. Please try again.');
