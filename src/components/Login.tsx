@@ -31,7 +31,7 @@ export default function Login() {
     localStorage.setItem('token', token);
     localStorage.setItem("user", JSON.stringify({ isAuthenticated: true, role: isAdmin ? "admin" : "user", email: email }));
 
-    window.location.href = isAdmin ? '/admin' : '/fyp';
+    window.location.href = isAdmin ? '/#/admin' : '/#/fyp';
   } catch (error) {
     console.error('Error while logging in:', error);
     alert(error.message); 
