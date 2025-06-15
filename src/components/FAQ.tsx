@@ -6,16 +6,18 @@ export default function FAQ() {
   const [faq, setFaq] = useState([]);
   const [unanswered, setUnanswered] = useState([]);
   const [answers, setAnswers] = useState({});
+  const CHATBOT_URL = process.env.REACT_APP_CHATBOT_URL;
+
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/faq')
+    fetch(`${CHATBOT_URL}/faq`)
       .then(res => res.json())
       .then(data => setFaq(data))
       .catch(console.error);
   }, []);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/unanswered')
+    fetch(`${CHATBOT_URL}/unanswered`)
       .then(res => res.json())
       .then(data => setUnanswered(data))
       .catch(console.error);
@@ -33,7 +35,7 @@ export default function FAQ() {
     }
 
     try {
-      const res = await fetch('http://127.0.0.1:5000/answer', {
+      const res = await fetch(`${CHATBOT_URL}/answer`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question, answer }),
@@ -71,7 +73,8 @@ export default function FAQ() {
         </ul>
 
         <h2>Unanswered questions</h2>
-        {unanswered.length === 0 && <p>No questions.</p>}
+        {unanswered.length === 0 && <p>No quefstions.</p>}
+        
         {unanswered.map((question, i) => (
           <div key={i} className="unanswered-card">
             <p><strong>Question:</strong> {question}</p>

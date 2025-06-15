@@ -29,6 +29,7 @@ function App() {
   const user = JSON.parse(localStorage.getItem('user') || '{}');
   return (
     <Routes>
+      
       <Route path="/home" element={<View />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
