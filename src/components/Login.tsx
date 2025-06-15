@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../styles/login.css'; // Nova CSS datoteka
+import { useAuth } from "./AuthContext";
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+    const { login } = useAuth();
 
   const handleLogin = async () => {
     try {
@@ -30,8 +32,13 @@ export default function Login() {
       // Spremi token (u lokalnu memoriju, session, ili state management)
     localStorage.setItem('token', token);
     localStorage.setItem("user", JSON.stringify({ isAuthenticated: true, role: isAdmin ? "admin" : "user", email: email }));
+    const userData = { isAuthenticated: true, role: isAdmin ? "admin" : "user", email };
 
-    window.location.href = isAdmin ? '/#/admin' : '/#/fyp';
+
+    login(userData);
+    setTimeout(() => {
+  navigate(isAdmin ? '/admin' : '/fyp');
+}, 50);
   } catch (error) {
     console.error('Error while logging in:', error);
     alert(error.message); 

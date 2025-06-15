@@ -24,9 +24,10 @@ import Warehouse from "./components/Warehouse";
 import FAQ from "./components/FAQ";
 import View from "./components/home2";
 import OrderReviews2 from "./components/OrderReviews2";
+import { useAuth } from "./components/AuthContext";
 
 function App() {
-  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  const { user } = useAuth();
   return (
     <Routes>
 
