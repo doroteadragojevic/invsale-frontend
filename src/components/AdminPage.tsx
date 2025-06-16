@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OrderReviews from "./OrderReviews";
 import AdminHeader from "./AdminMenu";
-import '../styles/home.css'; // Importiramo CSS datoteku
+import '../styles/home.css'; 
 
 
 type Product = {
@@ -10,8 +10,8 @@ type Product = {
   name: string;
   manufacturerName: string | null;
   description: string;
-  imageData: string | null; // base64 encoded string, može biti null
-  price?: number; // Dodajemo cijenu kao opcionalni parametar
+  imageData: string | null; 
+  price?: number; 
   discount: boolean;
 };
 
@@ -42,7 +42,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    setIsLoggedIn(!!token); // Ako postoji token, korisnik je prijavljen
+    setIsLoggedIn(!!token);
   }, []);
 
   // Fetch products
@@ -74,7 +74,6 @@ export default function AdminPage() {
             }));
         });
 
-        // Čekaj dok ne dobijemo sve proizvode i njihove cijene
         Promise.all(productsWithPrices)
           .then((filledProducts) => {
             setProducts(filledProducts);
@@ -84,12 +83,10 @@ export default function AdminPage() {
       .catch((err) => console.error("Error fetching products:", err));
   }, [selectedCategory]);
 
-  // Choose category
   const handleCategorySelect = (categoryName: string) => {
     setSelectedCategory(categoryName);
   };
 
-  // Reset filter
   const handleClearFilter = () => {
     setSelectedCategory(null);
   };
@@ -97,13 +94,12 @@ export default function AdminPage() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    setIsLoggedIn(false); // Postavi status prijave na false
-    navigate('/'); // Preusmjeri na stranicu za prijavu
+    setIsLoggedIn(false); 
+    navigate('/'); 
   };
 
-  // Navigate to add new product page
   const handleAddProduct = () => {
-    navigate('/add-product'); // Pretpostavljamo da imamo stranicu za dodavanje proizvoda
+    navigate('/add-product'); 
   };
 
   const handleDeleteProduct = async (idProduct: number) => {
@@ -152,7 +148,6 @@ export default function AdminPage() {
         <div className="products-grid">
           {products.map((product) => (
             <div key={product.idProduct} className="product-card">
-              {/* Slika proizvoda */}
               <div className="product-image-container">
                 <img
                   src={product.imageData || "/path/to/default-image.jpg"}
@@ -173,7 +168,6 @@ export default function AdminPage() {
                 </div>
               </div>
 
-              {/* Naziv proizvoda */}
               <div className="product-name">{product.name}</div>
 
               {product.price !== undefined && (

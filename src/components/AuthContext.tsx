@@ -4,18 +4,15 @@ const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
-    // pri inicijalizaciji uzmi user iz localStorage
     const storedUser = localStorage.getItem("user");
     return storedUser ? JSON.parse(storedUser) : null;
   });
 
-  // funkcija za login - postavi user u state i localStorage
   const login = (userData) => {
     localStorage.setItem("user", JSON.stringify(userData));
     setUser(userData);
   };
 
-  // logout funkcija
   const logout = () => {
     localStorage.removeItem("user");
     setUser(null);
@@ -28,5 +25,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Hook za korištenje auth konteksta
 export const useAuth = () => useContext(AuthContext);

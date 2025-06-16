@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/adminMenu.css"; // CSS za stilizaciju
+import "../styles/adminMenu.css"; 
 
 const AdminHeader: React.FC = () => {
   const navigate = useNavigate();

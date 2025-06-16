@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Chatbot from "./Chatbot"; // Chatbot komponenta koju smo ranije kreirali
+import Chatbot from "./Chatbot"; 
 
 const ChatbotPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,11 +10,10 @@ const ChatbotPopup = () => {
 
   return (
     <div style={{
-    fontFamily: "Montserrat, sans-serif",       // Font za cijeli div
-    height: isOpen ? "100px" : "auto",      // Visina samo kad je otvoren
+    fontFamily: "Montserrat, sans-serif",     
+    height: isOpen ? "100px" : "auto",    
     position: "relative"
   }}>
-      {/* Bot trigger button */}
       <button 
         onClick={toggleChatbot}
         style={styles.button}
@@ -22,7 +21,6 @@ const ChatbotPopup = () => {
         ASK A QUESTION
       </button>
 
-      {/* Chatbot popup */}
       {isOpen && (
         <div style={{
       ...styles.popup,
@@ -42,7 +40,6 @@ const ChatbotPopup = () => {
   );
 };
 
-// Stiliziranje komponenta pomoću inline stilova
 const styles = {
   button: {
     position: "fixed",

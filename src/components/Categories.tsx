@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaTrash } from 'react-icons/fa'; // Importiranje ikone za brisanje
+import { FaTrash } from 'react-icons/fa'; 
 import '../styles/Categories.css';
 import AdminHeader from "./AdminMenu";
 
@@ -16,7 +16,6 @@ const Categories = () => {
   const [newCategoryDescription, setNewCategoryDescription] = useState('');
   const navigate = useNavigate();
 
-  // Fetch categories
   useEffect(() => {
     const apiUrl = process.env.REACT_APP_API_URL;
     console.log("Fetching from:", apiUrl);
@@ -33,12 +32,10 @@ const Categories = () => {
       .catch((err) => console.error("Error fetching categories:", err));
   }, []);
 
-  // Choose category
   const handleCategorySelect = (categoryName: string) => {
     navigate('/category', { state: { name: categoryName } });
   };
 
-  // Handle description change with validation
 const handleDescriptionChange = (name: string, value: string) => {
   if (value.length > 200) {
     alert("Opis ne smije biti dulji od 200 znakova.");
@@ -51,7 +48,6 @@ const handleDescriptionChange = (name: string, value: string) => {
   }));
 };
 
-// Handle create new category with validation
 const handleCreateNew = () => {
   if (!newCategoryName) {
     alert("Naziv kategorije je obavezan.");
@@ -94,20 +90,16 @@ const handleCreateNew = () => {
 };
 
 
-  // Handle save
   const handleSave = (name: string) => {
     const apiUrl = process.env.REACT_APP_API_URL;
     const updatedDescription = editedDescriptions[name];
 
-    // Ažuriraj kategoriju odmah u local state-u
     const updatedCategories = categories.map(cat =>
       cat.name === name ? { ...cat, description: updatedDescription } : cat
     );
 
-    // Ažuriraj localni state odmah
     setCategories(updatedCategories);
 
-    // Sada šaljemo PUT zahtjev za pohranu
     fetch(`${apiUrl}/categories/`, {
       method: 'PUT',
       headers: {
@@ -122,19 +114,16 @@ const handleCreateNew = () => {
       .catch((err) => console.error("Error saving description:", err));
   };
 
-  // Handle delete
   const handleDelete = (name: string) => {
     const apiUrl = process.env.REACT_APP_API_URL;
 
-    // Testiranje sa encodeURIComponent i bez njega
-    const encodedName = encodeURIComponent(name); // I dalje koristimo encodeURIComponent
+    const encodedName = encodeURIComponent(name); 
     fetch(`${apiUrl}/categories/${encodedName}`, {
       method: 'DELETE',
     })
       .then((res) => {
         if (!res.ok) throw new Error('Failed to delete');
 
-        // Update local state after deletion
         setCategories(prev => prev.filter(cat => cat.name !== name));
         console.log(`Deleted category ${name}`);
       })
@@ -145,7 +134,6 @@ const handleCreateNew = () => {
     <div>
       <AdminHeader />
       <div className="home-container-c">
-        {/* Create new category form */}
         <div className="create-category-form">
           <input
             type="text"

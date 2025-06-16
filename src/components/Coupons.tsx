@@ -28,7 +28,6 @@ const Coupons = () => {
 
   const apiUrl = process.env.REACT_APP_API_URL;
 
-  // Pretvara ISO string u lokalni datetime format za input
   const toDateTimeLocalFormat = (dateStr: string | null): string => {
     if (!dateStr) return '';
     const date = new Date(dateStr);
@@ -146,7 +145,6 @@ const Coupons = () => {
       return;
     }
   
-    // Provjera jedinstvenosti koda kupona
     if (coupons.some((coupon) => coupon.code === newCouponCode)) {
       alert("Coupon code already exists!");
       return;

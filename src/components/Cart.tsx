@@ -42,7 +42,6 @@ export default function Cart() {
 if (savedCoupon) {
   setCoupon(savedCoupon);
 }
-        // Dohvati aktivnu narudžbu korisnika
         const activeOrderRes = await fetch(`${apiUrl}/orders/cart/${email}`);
         if (!activeOrderRes.ok) {
           navigate('/');
@@ -53,12 +52,10 @@ if (savedCoupon) {
         const orderId = activeOrder.idOrder;
         setIdOrder(orderId);
 
-        // Dohvati stavke narudžbe
         const itemsRes = await fetch(`${apiUrl}/orderItem/order/${orderId}`);
         const items: OrderItemDTO[] = await itemsRes.json();
         setOrderItems(items);
 
-        // Dohvati cijene za svaku stavku
         const pricePromises = items.map(async item => {
           const res = await fetch(`${apiUrl}/pricelist/${item.productId}/${item.unitId}`);
           if (res.ok) {
@@ -79,7 +76,6 @@ if (savedCoupon) {
         });
         setPrices(priceMap);
 
-        // Izračunaj ukupnu cijenu
         const total = items.reduce((acc, item) => {
           const price = priceMap[item.idOrderItem] || 0;
           return acc + item.quantity * price;
@@ -112,12 +108,16 @@ if (savedCoupon) {
     const removedItem = orderItems.find(i => i.idOrderItem === orderItemId);
     const remainingItems = orderItems.filter(item => item.idOrderItem !== orderItemId);
 
-    // Ako će KOŠARICA POSTATI PRAZNA, prvo ukloni kupon
+    const tempCoupon = coupon;
+    if(coupon !== '') {
+    await clearCoupon(tempCoupon);
+    await applyCoupon(tempCoupon);
+    }
+
     if (remainingItems.length === 0 && coupon !== '') {
       await clearCoupon(coupon);
     }
 
-    // Ukloni stavku iz narudžbe
     const res = await fetch(`${apiUrl}/orderItem/${orderItemId}`, { method: "DELETE" });
     if (!res.ok) throw new Error('Error deleting item');
 
@@ -137,7 +137,6 @@ if (savedCoupon) {
 
 
   const handleCouponChange = (value: string) => {
-      // Provjera duljine i formata kupona
       if (value.length > 20) {
         alert("Incorrect coupon.");
         return;
@@ -167,6 +166,7 @@ if (savedCoupon) {
       }
 
       localStorage.setItem("appliedCoupon", code);
+      setCoupon(code);
   
       const newOrderInfo = await res.json();
       setTotalPrice(newOrderInfo.totalPrice);

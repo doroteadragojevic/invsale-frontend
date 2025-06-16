@@ -45,7 +45,6 @@ const Checkout: React.FC = () => {
     fetchOrder();
   }, [idOrder]);
 
-  // Validacija unosa
   const validateInputs = () => {
     const newErrors: { street?: string; city?: string; fullName?: string } = {};
 
