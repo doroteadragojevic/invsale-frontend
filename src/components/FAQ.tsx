@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AdminHeader from './AdminMenu';
-import '../styles/FAQ.css'; // 👉 uvoz CSS-a
+import '../styles/FAQ.css'; 
 
 export default function FAQ() {
   const [faq, setFaq] = useState([]);

@@ -38,7 +38,7 @@ const ProductDetail = () => {
   const [selectedUnit, setSelectedUnit] = useState<number | null>(null);
   const [orderId, setOrderId] = useState<number | null>(null);
   const [cartItem, setCartItem] = useState<CartItem | null>(null);
-  const [reserved, setReserved] = useState<number>(0);  // State to hold reserved quantity
+  const [reserved, setReserved] = useState<number>(0);  
   const [reviews, setReviews] = useState<{ rating: string; comment: string }[]>([]);
 const [avgRating, setAvgRating] = useState<number | null>(null);
   const navigate = useNavigate();
@@ -47,7 +47,6 @@ const [avgRating, setAvgRating] = useState<number | null>(null);
 useEffect(() => {
   if (!productId) return;
 
-  // Dohvati recenzije proizvoda
   fetch(`${apiUrl}/itemreviews/product/${productId}`)
     .then((res) => res.json())
     .then((data) => {
@@ -84,13 +83,11 @@ useEffect(() => {
       })
       .catch((err) => console.error('Error fetching units:', err));
 
-    // Fetch reserved quantity
     fetch(`${apiUrl}/products/reserved/${productId}/${selectedUnit}`)
       .then((res) => res.json())
-      .then((data) => setReserved(data)) // Assume the response contains 'reserved'
+      .then((data) => setReserved(data)) 
       .catch((err) => console.error('Error fetching reserved quantity:', err));
 
-    // Fetch orderId from backend
     const user = localStorage.getItem('user');
     const email = user ? JSON.parse(user).email : '';
     
@@ -124,7 +121,6 @@ useEffect(() => {
     const user = localStorage.getItem('user');
     const email = user ? JSON.parse(user).email : '';
 
-    // Create a new order if no active order exists
     const res = await fetch(`${apiUrl}/orders/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -139,7 +135,6 @@ useEffect(() => {
   const handleAddToCart = async () => {
     if (!selectedUnit || !productId || !product) return;
 
-    // Prevent adding to cart if the product is out of stock
     if (reserved >= product.quantityOnStock) {
       alert("This product is currently out of stock.");
       return;
@@ -168,16 +163,12 @@ useEffect(() => {
   const updateQuantity = async (orderItemId: number, action: 'inc' | 'dec') => {
     if (!cartItem || !product) return;
   
-    // Ovisno o akciji, povećavamo ili smanjujemo količinu za 1
     const newQuantity = action === 'inc' ? cartItem.quantity + 1 : cartItem.quantity - 1;
   
-    // Provjera da li želimo smanjiti količinu ispod 1 ili prijeći u negativnu količinu
     if (newQuantity <= 0) {
-      // Ako količina padne ispod 1, brišemo artikl iz košarice
       await fetch(`${apiUrl}/orderItem/${cartItem.idOrderItem}`, { method: "DELETE" });
       setCartItem(null);
     } else {
-      // Provjera da li je količina rezervirana veća ili jednaka na skladištu
       if (reserved + newQuantity > product.quantityOnStock) {
         alert("No more available stock for this product.");
         return;
@@ -186,12 +177,10 @@ useEffect(() => {
       const path = action === 'inc' ? `/orderItem/${orderItemId}` : `/orderItem/de/${orderItemId}`;
       const res = await fetch(`${apiUrl}${path}`, { method: "PUT" });;
   
-      // Ažuriraj stanje s novom količinom
       setCartItem({ ...cartItem, quantity: newQuantity });
     }
   };
 
-  // Funkcija koja dohvaća cijenu za odabrano pakiranje
 const fetchPriceForUnit = async (productId: number, unitId: number) => {
   try {
     const res = await fetch(`${apiUrl}/pricelist/price/${productId}/${unitId}`);
@@ -204,7 +193,6 @@ const fetchPriceForUnit = async (productId: number, unitId: number) => {
   }
 };
 
-// useEffect koji prati promjenu odabranog pakiranja
 useEffect(() => {
   if (productId && selectedUnit !== null) {
     fetchPriceForUnit(productId, selectedUnit);
@@ -238,7 +226,7 @@ useEffect(() => {
   
 
    const user = localStorage.getItem('user');
-  const isLoggedIn = !!user; // true ako postoji
+  const isLoggedIn = !!user; 
   if (!product) return <div>Loading...</div>;
 
   return (
@@ -281,7 +269,6 @@ useEffect(() => {
   onChange={(e) => {
     const unitId = parseInt(e.target.value);
     setSelectedUnit(unitId);
-    // Nema potrebe za dodatnim fetchom ovdje jer će useEffect reagirati na setSelectedUnit
   }}
 >
   {units.map((unit) => (

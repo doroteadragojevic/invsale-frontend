@@ -20,7 +20,7 @@ margin: 10px auto;
   }
   
   table th {
-    background-color: transparent; /* Uklonjena siva boja */
+    background-color: transparent; 
     color: #444;
     background: transparent;
     border-top: none;

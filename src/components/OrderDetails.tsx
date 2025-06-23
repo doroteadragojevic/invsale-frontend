@@ -47,7 +47,6 @@ const OrderDetails: React.FC = () => {
 
   const navigate = useNavigate();
 
-   // Provjera je li korisnik već ostavio recenziju za narudžbu
    useEffect(() => {
     const checkReview = async () => {
       try {
@@ -57,7 +56,7 @@ const OrderDetails: React.FC = () => {
         if (res.ok) {
           const data = await res.json();
           console.log("ATA: " + data);
-          setHasReviewed(data); // Pretpostavka da vraća objekt { hasReview: true/false }
+          setHasReviewed(data); 
         }
       } catch (err) {
         console.error('Error fetching order status:', err);

@@ -89,7 +89,6 @@ export default function Home() {
               .then(res => res.json())
               .then((reserved: any) => reserved);
 
-            // Čekanje svih podataka
             const [price, discount, reserved] = await Promise.all([pricePromise, discountPromise, reservedPromise]);
 
             return {
@@ -134,7 +133,6 @@ export default function Home() {
     }
   
     try {
-      // Pronađi proizvod u stanju
       const item = cartItems.find(i => i.idOrderItem === idOrderItem);
       if (!item) return;
   
@@ -143,23 +141,18 @@ export default function Home() {
   
       const availableQuantity = (product.quantityOnStock ?? 0) - (product.reserved ?? 0);
   
-      // Ako je inkrement, provjeri dostupnost
       if (action === 'inc' && availableQuantity <= 0) {
         alert("Nema više proizvoda na skladištu.");
         return;
       }
   
-      // Ako je dekrement i količina je 1, brišemo direktno
       if (action === 'dec' && item.quantity === 1) {
-        // Poziv prema backendu za brisanje
         const deleteRes = await fetch(`${apiUrl}/orderItem/${idOrderItem}`, { method: "DELETE" });
   
         if (!deleteRes.ok) throw new Error('Greška kod brisanja stavke');
   
-        // Ažuriraj stanje u košarici
         setCartItems(prev => prev.filter(ci => ci.idOrderItem !== idOrderItem));
   
-        // Ažuriraj stanje proizvoda (oslobodi rezervirano)
         setProducts(prevProducts =>
           prevProducts.map(p =>
             p.idProduct === product.idProduct
@@ -171,19 +164,16 @@ export default function Home() {
         return;
       }
   
-      // Ako je inkrement ili dekrement s količinom većom od 1, nastavi
       const path = action === 'inc' ? `/orderItem/${idOrderItem}` : `/orderItem/de/${idOrderItem}`;
       const res = await fetch(`${apiUrl}${path}`, { method: "PUT" });
   
       if (!res.ok) throw new Error('Greška kod ažuriranja količine');
   
-      // Dohvati ažuriranu stavku
       const updatedRes = await fetch(`${apiUrl}/orderItem/${idOrderItem}`);
       if (!updatedRes.ok) throw new Error('Greška kod dohvaćanja ažurirane stavke');
   
       const updatedItem = await updatedRes.json();
   
-      // Ažuriraj košaricu
       setCartItems(prev =>
         prev
           .map(item =>
@@ -194,7 +184,6 @@ export default function Home() {
           .filter(item => item.quantity > 0)
       );
   
-      // Ažuriraj stanje proizvoda
       setProducts(prevProducts =>
         prevProducts.map(p =>
           p.idProduct === updatedItem.productId
@@ -226,7 +215,6 @@ export default function Home() {
         return;
       }
   
-      // Nastavlja se postojeći kod...
       let currentOrderId = orderId;
   
       if (!currentOrderId) {
@@ -264,7 +252,6 @@ export default function Home() {
         quantity: newItem.quantity
       }]);
   
-      // Ažuriraj reserved u frontend stanju
       setProducts(prevProducts =>
         prevProducts.map(product =>
           product.idProduct === productId

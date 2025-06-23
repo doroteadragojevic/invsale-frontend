@@ -1,4 +1,3 @@
-/* Stilizacija za Stocks komponentu */
 .stocks-container {
     max-width: 1000px;
     margin: 10px auto;
@@ -26,7 +25,7 @@
   }
   
   .stocks-table th {
-    background-color: transparent; /* Uklonjena siva boja */
+    background-color: transparent; 
     color: #444;
     background: transparent;
     border-top: none;
@@ -37,10 +36,10 @@
   }
 
   .stocks-table tr:last-child td {
-    border-bottom: none; /* Uklanja donju crtu zadnjeg reda */
+    border-bottom: none; 
   }
 
   .low-stock {
-    background-color: #ffe5e5; /* nježno crvena pozadina */
+    background-color: #ffe5e5; 
   }
   

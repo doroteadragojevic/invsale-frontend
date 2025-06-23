@@ -19,7 +19,6 @@ export default function OrderReviews() {
   const isAdmin = parsedUser?.role === 'admin';
 
   useEffect(() => {
-    // Pretpostavljamo da je potrebno dohvatiti recenzije za korisnika
     const token = localStorage.getItem('token');
     if (token) {
       const user = localStorage.getItem('user');
@@ -43,7 +42,7 @@ export default function OrderReviews() {
 
   const formatDate = (date: string) => {
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' };
-    return new Date(date).toLocaleDateString('en-GB', options);  // Prikazujemo datum u formatu dd/mm/yyyy
+    return new Date(date).toLocaleDateString('en-GB', options); 
   };
   const mapRating = (rating: string) => {
     switch(rating) { 

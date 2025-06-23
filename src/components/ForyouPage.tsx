@@ -74,7 +74,6 @@ export default function ForYouPage() {
               .then(res => res.json())
               .then((reserved: any) => reserved);
 
-            // Čekanje svih podataka
             const [price, discount, reserved] = await Promise.all([pricePromise, discountPromise, reservedPromise]);
 
             return {
@@ -116,7 +115,6 @@ export default function ForYouPage() {
   
       if (!res.ok) throw new Error('Greška kod ažuriranja količine');
   
-      // Nakon uspješne promjene količine, osvježavamo cartItems i ažuriramo reserved
       const updatedRes = await fetch(`${apiUrl}/orderItem/${idOrderItem}`);
       if (!updatedRes.ok) throw new Error('Greška kod dohvaćanja ažurirane stavke');
   
@@ -132,7 +130,6 @@ export default function ForYouPage() {
           .filter(item => item.quantity > 0)
       );
   
-      // Ažuriraj reserved stanje odmah u stanju proizvoda
       const updatedProducts = [...products];
       const productIndex = updatedProducts.findIndex(product => product.idProduct === updatedItem.productId);
       if (productIndex !== -1) {
@@ -190,7 +187,6 @@ export default function ForYouPage() {
         quantity: newItem.quantity
       }]);
   
-      // Ponovno dohvaćanje podataka o "reserved" nakon dodavanja u košaricu
       
       const updatedProduct = await fetch(`${apiUrl}/products/reserved/${productId}/${unitId}`).then(res => res.json());
       setProducts(prevProducts =>
@@ -206,8 +202,8 @@ export default function ForYouPage() {
   };
 
   const navigateToOrders = () => {
-    navigate('/orders'); // URL za kategorije
-    setIsMenuOpen(false); // Zatvori meni nakon odabira
+    navigate('/orders'); 
+    setIsMenuOpen(false); 
   };
   
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import '../styles/login.css'; // Nova CSS datoteka
+import '../styles/login.css'; 
 import { useAuth } from "./AuthContext";
 
 export default function Login() {
@@ -29,7 +29,6 @@ export default function Login() {
       const isAdmin = data.isAdmin;
     
   
-      // Spremi token (u lokalnu memoriju, session, ili state management)
     localStorage.setItem('token', token);
     localStorage.setItem("user", JSON.stringify({ isAuthenticated: true, role: isAdmin ? "admin" : "user", email: email }));
     const userData = { isAuthenticated: true, role: isAdmin ? "admin" : "user", email };

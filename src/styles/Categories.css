@@ -9,7 +9,7 @@ font-family: "Montserrat", sans-serif;
   gap: 10px;
   align-items: center;
   flex-direction: column;
-  width: 450px; /* fiksna širina forme, možeš prilagoditi */
+  width: 450px; 
   margin: 20px 50px; 
 }
 
@@ -20,15 +20,15 @@ font-family: "Montserrat", sans-serif;
   border-radius: 5px;
   border: 1px solid #dddddd;
   margin-bottom: 8px;
-  width: 100%;  /* Širina da popuni cijeli blok */
+  width: 100%;  
 }
 
 .description-textarea {
-  resize: vertical; /* Omogućava promjenu visine */
+  resize: vertical; 
   max-width: 100%;
   margin-bottom: 0;
-  overflow-wrap: break-word; /* Razbijanje dugih riječi */
-  box-sizing: border-box; /* Uklanja preljevanje */
+  overflow-wrap: break-word; 
+  box-sizing: border-box; 
 }
 
 .create-new-button-c {
@@ -73,14 +73,14 @@ font-family: "Montserrat", sans-serif;
 }
 
 .categories-table th {
-    background-color: transparent; /* Uklonjena siva boja */
+    background-color: transparent; 
     color: #444;
     background: transparent;
     border-top: none;
   }
   
   .categories-table tr:last-child td {
-    border-bottom: none; /* Uklanja donju crtu zadnjeg reda */
+    border-bottom: none; 
   }
 
 

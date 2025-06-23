@@ -29,7 +29,7 @@
   }
 
   .review-table th {
-    background-color: transparent; /* Uklonjena siva boja */
+    background-color: transparent; 
     color: #444;
     background: transparent;
     border-top: none;
@@ -52,7 +52,7 @@
   }
   
   .review-table tr:last-child td {
-    border-bottom: none; /* Uklanja donju crtu zadnjeg reda */
+    border-bottom: none;
   }
   .add-review-btn {
     margin-top: 20px;

@@ -11,7 +11,7 @@ type Product = {
   description: string;
   imageData: string | null;
   quantityOnStock: number | null;
-  ingredients: Set<string>; // ingredients kao Set
+  ingredients: Set<string>;
   reorderNotificationThreshold: number | null;
 };
 
@@ -57,7 +57,7 @@ const UpdateProduct = () => {
       const data = await res.json();
       setProduct({
         ...data,
-        ingredients: data.ingredients ? new Set(data.ingredients) : new Set(), // pretvori niz u Set
+        ingredients: data.ingredients ? new Set(data.ingredients) : new Set(), 
       });
     } catch (err) {
       console.error('Error fetching product details:', err);
@@ -236,7 +236,7 @@ const UpdateProduct = () => {
           idManufacturer: product.idManufacturer,
           description: product.description,
           quantityOnStock: product.quantityOnStock,
-          ingredients: Array.from(product.ingredients), // Set pretvorba u Array
+          ingredients: Array.from(product.ingredients), 
           reorderNotificationThreshold: product.reorderNotificationThreshold
         }),
       });
@@ -255,7 +255,6 @@ const UpdateProduct = () => {
   const validateFields = () => {
     if (!product) return false;
   
-    // Provjera imena proizvoda
     if (!product.name.trim()) {
       alert("Product name is required.");
       return false;
@@ -263,7 +262,6 @@ const UpdateProduct = () => {
       alert("Product name cannot exceed 50 characters.");
       return false;
     } 
-    // Provjera opisa proizvoda
     if (product.description.length > 250) {
       alert("Description cannot exceed 250 characters.");
       return false;
@@ -272,13 +270,11 @@ const UpdateProduct = () => {
       return false;
     } 
   
-    // Provjera količine na skladištu
     if (product.quantityOnStock !== null && product.quantityOnStock < 0) {
       alert("Quantity cannot be negative.");
       return false;
     }
   
-    // Provjera praga za obavijesti
     if (
       product.reorderNotificationThreshold !== null &&
       product.reorderNotificationThreshold <= 0

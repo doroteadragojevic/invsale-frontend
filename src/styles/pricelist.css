@@ -23,14 +23,14 @@ margin: 20px auto;
 }
 
 .pl-table th {
-    background-color: transparent; /* Uklonjena siva boja */
+    background-color: transparent;
     color: #444;
     background: transparent;
     border-top: none;
   }
   
   .pl-table tr:last-child td {
-    border-bottom: none; /* Uklanja donju crtu zadnjeg reda */
+    border-bottom: none;
   }
 
   .home-container-pl input[type="text"],.home-container-pl input[type="number"],.home-container-pl input[type="datetime-local"] {

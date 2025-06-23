@@ -1,4 +1,3 @@
-/* Glavni header container */
 .admin-header {
   height: 115px;
   display: flex;
@@ -11,7 +10,6 @@
   z-index: 1000;
 }
 
-/* Stil za logo container */
 .admin-logo {
   display: flex;
   margin-top: 20px;
@@ -20,7 +18,6 @@
   gap: 15px;
 }
 
-/* Linkovi unutar headera */
 .admin-logo a {
   text-decoration: none;
   color: #333;
@@ -29,24 +26,20 @@
   transition: color 0.3s ease;
 }
 
-/* Logo slika */
 .logo-image {
   width: 120px;
   height: auto;
 }
 
-/* Hover efekt na linkove */
 .admin-logo a:hover {
   color: #687616;
 }
 
-/* Desna sekcija s gumbom */
 .admin-actions {
   display: flex;
   align-items: center;
 }
 
-/* Logout gumb */
 .logout-icon {
   margin-left: 20px;
   width: 35px;

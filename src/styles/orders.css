@@ -100,7 +100,7 @@
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    display: block;       /* uzima širinu koliko treba */
+    display: block;       
   margin-left: 0;
   }
   
@@ -124,13 +124,13 @@
   }
   
   .order-items-table th {
-    background-color: transparent; /* Uklonjena siva boja */
+    background-color: transparent; 
     color: #444;
     background: transparent;
   }
 
   .order-items-table tr:last-child td {
-    border-bottom: none; /* Uklanja donju crtu zadnjeg reda */
+    border-bottom: none; 
   }
   
   .filter-container {
@@ -152,7 +152,7 @@
     font-size: 16px;
     font-family: "Montserrat", sans-serif;
     cursor: pointer;
-    display: block;       /* uzima širinu koliko treba */
+    display: block;       
   margin-left: 0;
   }
   
@@ -168,7 +168,7 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    display: block;       /* uzima širinu koliko treba */
+    display: block;       
   margin-left: 0;
   }
   

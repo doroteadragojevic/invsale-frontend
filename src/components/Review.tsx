@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom'; // dodaj useNavigate
+import { Link, useLocation, useNavigate } from 'react-router-dom'; 
 import "../styles/review.css";
 
 interface OrderItem {
@@ -61,7 +61,6 @@ const Review: React.FC = () => {
     const now = new Date().toISOString();
 
     try {
-      // Order review
       await fetch(`${apiUrl}/orderreview/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -74,7 +73,6 @@ const Review: React.FC = () => {
         }),
       });
 
-      // Order item reviews
       for (const [orderItemId, data] of itemReviews.entries()) {
         await fetch(`${apiUrl}/itemreviews/`, {
             method: 'POST',

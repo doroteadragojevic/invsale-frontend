@@ -24,13 +24,13 @@
   }
   
   .reviews-table th {
-    background-color: transparent; /* Uklonjena siva boja */
+    background-color: transparent; 
     color: #444;
     background: transparent;
   }
 
   .reviews-table tr:last-child td {
-    border-bottom: none; /* Uklanja donju crtu zadnjeg reda */
+    border-bottom: none; 
   }
 
   .reviews-table .rating-stars {

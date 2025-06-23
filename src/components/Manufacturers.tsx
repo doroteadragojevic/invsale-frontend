@@ -19,7 +19,6 @@ const Manufacturers = () => {
 
   const apiUrl = process.env.REACT_APP_API_URL;
 
-  // Fetch producers
   useEffect(() => {
     fetch(`${apiUrl}/manufacturer/`)
       .then((res) => res.json())
@@ -51,7 +50,6 @@ const Manufacturers = () => {
       return true;
     }
   }
-  // Create producer
   const handleCreateNew = () => {
     if (!validate(newProducerName)) {
       return;
@@ -67,7 +65,7 @@ const Manufacturers = () => {
     })
       .then((res) => {
         if (!res.ok) throw new Error('Failed to create new supplier');
-        return res.json(); // očekujemo da API vrati stvoren objekt s id-em
+        return res.json(); 
       })
       .then((created) => {
         setProducers(prev => [...prev, created]);
@@ -77,7 +75,6 @@ const Manufacturers = () => {
     }
   };
 
-  // Edit input change
   const handleManufacturerChange = (id: number, value: string) => {
     setEditedManufacturers(prev => ({
       ...prev,
@@ -85,7 +82,6 @@ const Manufacturers = () => {
     }));
   };
 
-  // Save edited producer
   const handleSaveEdit = (id: number) => {
     if(!validateUpdate(editedManufacturers[id])){
       return;
@@ -114,7 +110,6 @@ const Manufacturers = () => {
       .catch((err) => console.error("Error updating supplier:", err));
   };
 
-  // Delete producer
   const handleDelete = (id: number) => {
     fetch(`${apiUrl}/manufacturer/${id}`, {
       method: 'DELETE',

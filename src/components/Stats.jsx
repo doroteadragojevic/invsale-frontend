@@ -7,7 +7,6 @@ import {
 import AdminHeader from './AdminMenu';
 
 
-// DTO za proizvod
 const ProductDTO = {
   idProduct: null,
   idManufacturer: null,
@@ -33,12 +32,10 @@ const [selectedProduct, setSelectedProduct] = useState("");
 
   const apiUrl = process.env.REACT_APP_API_URL;
 
-  // Funkcija za dohvat podataka o proizvodima
   const fetchProducts = async () => {
     try {
       const response = await fetch(`${apiUrl}/products/`);
       const data = await response.json();
-      // Mapiranje podataka na DTO
       const mappedProducts = data.map((product) => ({
         ...ProductDTO,
         idProduct: product.idProduct,
@@ -59,7 +56,6 @@ const [selectedProduct, setSelectedProduct] = useState("");
     }
   };
 
-  // Koristi useEffect za pozivanje funkcije za dohvat podataka nakon renderiranja
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -104,45 +100,38 @@ useEffect(() => {
 
   const res = await fetch(fullUrl);
   const data = await res.json();
-      setChartData(data); // očekuje se niz objekata npr. [{ time: '01.01.', value: 4 }, ...]
+      setChartData(data); 
       console.log(data);
     } catch (error) {
       console.error('Error fetching graph data:', error);
     }
   };
-  // Filtriraj proizvode koji trebaju nadopunu zaliha
   const productsToRestock = products.filter(
     (product) => product.reorderNotificationThreshold >= product.quantityOnStock
   );
 
-  // Funkcija za generiranje PDF-a
   const generatePDF = () => {
     const doc = new jsPDF();
 
-    // Dodajemo naslov PDF-a
     doc.setFontSize(18);
     doc.text('Items to restock', 14, 22);
 
-    // Postavljanje fonta za tablicu
     doc.setFontSize(12);
     
-    // Tablica header
     doc.text('Product', 14, 40);
     doc.text('Quantity on stock', 60, 40);
     doc.text('Low Stock Limit', 130, 40);
     doc.text('Supplier', 180, 40);
 
-    // Podaci za tablicu
     let yPosition = 50;
     productsToRestock.forEach((product) => {
       doc.text(product.name, 14, yPosition);
       doc.text(product.quantityOnStock.toString(), 60, yPosition);
       doc.text(product.reorderNotificationThreshold.toString(), 130, yPosition);
       doc.text(product.manufacturerName, 180, yPosition);
-      yPosition += 10; // Razmak između redova
+      yPosition += 10;
     });
 
-    // Spremanje PDF-a
     doc.save('restock.pdf');
   };
 
@@ -205,7 +194,7 @@ useEffect(() => {
     value={selectedCategory}
     onChange={(e) => {
       setSelectedCategory(e.target.value);
-      setSelectedProduct(""); // resetiraj proizvod kad se promijeni kategorija
+      setSelectedProduct(""); 
     }}
   >
     <option value="">All</option>

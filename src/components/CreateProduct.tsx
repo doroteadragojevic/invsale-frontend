@@ -127,7 +127,7 @@ export default function CreateProduct() {
 
       const initialPriceLists = selectedUnits.map(unit => ({
         idUnit: unit.idUnit,
-        name: unit.name, // ako želiš prikazivati ime unita
+        name: unit.name, 
         price: "",
         dateTimeFrom: "",
         dateTimeTo: "",
@@ -390,7 +390,6 @@ export default function CreateProduct() {
   }}></div>
   </div>
 </div>
-            {/* Basic Product Info */}
             <div>
               <label>Product Name</label>
               <input type="text" value={productName} onChange={e => setProductName(e.target.value)} required />
@@ -486,7 +485,6 @@ export default function CreateProduct() {
   }}></div>
   </div>
   </div>
-            {/* Categories Selection */}
             <div>
               <h3>Select Categories</h3>
               {categories.map(category => (
@@ -517,7 +515,6 @@ export default function CreateProduct() {
               </div>
             </div>
 
-            {/* Units Selection */}
             <div>
               <h3>Select Packaging</h3>
               {units.map(unit => (

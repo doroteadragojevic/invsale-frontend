@@ -1,17 +1,15 @@
-/* Osnovni stilovi za formu */
 .home-container-coupons {
     display: flex;
 flex-direction: row-reverse;
 font-family: "Montserrat", sans-serif;
   }
   
-  /* Stilovi za formu za kreiranje novog kupona */
   .create-coupon-form {
     display: flex;
   gap: 10px;
   align-items: center;
   flex-direction: column;
-  width: 450px; /* fiksna širina forme, možeš prilagoditi */
+  width: 450px; 
   margin: 20px 50px; 
   }
 
@@ -36,7 +34,6 @@ font-family: "Montserrat", sans-serif;
     outline: none;
   }
   
-  /* Stil za gumb za kreiranje novog kupona */
   .create-new-button {
     padding: 8px 16px;
   background-color: #373737;
@@ -57,7 +54,6 @@ font-family: "Montserrat", sans-serif;
     cursor: not-allowed;
   }
   
-  /* Stil za tablicu kupona */
   .coupons {
     width: 1500px;
   margin: 20px 50px;
@@ -88,7 +84,7 @@ font-family: "Montserrat", sans-serif;
   }
   
   .coupons-table th {
-    background-color: transparent; /* Uklonjena siva boja */
+    background-color: transparent; 
     color: #444;
     background: transparent;
     border-top: none;
@@ -111,7 +107,7 @@ font-family: "Montserrat", sans-serif;
   }
 
   .coupons-table tr:last-child td {
-    border-bottom: none; /* Uklanja donju crtu zadnjeg reda */
+    border-bottom: none;
   }
 
   
@@ -160,12 +156,10 @@ font-family: "Montserrat", sans-serif;
     background-color: rgba(172, 0, 0, 0.8);
   }
   
-  /* Stil za ikonu brisanja */
   .delete-button .fa-trash {
     font-size: 16px;
   }
   
-  /* Stil za inpute u tablici */
   .description-input {
     padding: 8px;
     font-size: 14px;

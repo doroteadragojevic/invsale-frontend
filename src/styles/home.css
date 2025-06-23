@@ -15,13 +15,13 @@
     margin-bottom: 1rem;
     color: #333;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #ccc; /* Tanka siva linija */
+    border-bottom: 1px solid #ccc;
   }
   
   
   .category-item {
     cursor: pointer;
-    color: #333; /* Usklađeno s ostatkom */
+    color: #333; 
     text-decoration: none;
     display: block;
     font-family: "Montserrat", sans-serif;
@@ -31,7 +31,7 @@
   }
   
   .category-item:hover {
-    color: #687616; /* Hover efekt kao i u headeru */
+    color: #687616; 
     text-decoration: underline;
   }
   
@@ -58,8 +58,8 @@
   
   .products-title {
     font-size: 2.5rem;
-    color: #333; /* Postavi boju na tamnu boju */
-    font-family: "Montserrat", sans-serif; /* Dodaj željeni font */
+    color: #333;
+    font-family: "Montserrat", sans-serif; 
     margin-bottom: 1.5rem;
     font-weight: normal;
   }
@@ -112,15 +112,15 @@
   }
   
   .view-button {
-    padding: 0.75rem 3rem; /* veći padding = veći gumb */
+    padding: 0.75rem 3rem;
     background-color: #687616;
     color: white;
     border-radius: 0.375rem;
     cursor: pointer;
     transition: background-color 0.8s ease;
-    font-size: 1.2rem; /* veći tekst */
-    font-family: "Montserrat", sans-serif; /* tvoj željeni font */
-    font-weight: 500; /* možeš prilagoditi debljinu slova po želji */
+    font-size: 1.2rem; 
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500; 
   }
   
   
@@ -133,8 +133,8 @@
     padding: 0.5rem;
     text-align: center;
     font-weight: 500;
-    font-size: 1.1rem; /* veći tekst */
-    font-family: "Montserrat", sans-serif; /* tvoj željeni font */
+    font-size: 1.1rem;
+    font-family: "Montserrat", sans-serif; 
     color: #333;
     text-transform: uppercase;
   }
@@ -194,12 +194,11 @@
     background-color: #687616;
   }
 
-  /* Stiliziranje menija */
 .menu-container {
   position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 100; /* Osiguraj da je meni uvijek na vrhu */
+  z-index: 100; 
 }
 
 .menu-button {
@@ -212,7 +211,7 @@
 
 .dropdown-content {
   position: absolute;
-  top: 40px; /* Pomiče padajući meni ispod ikone */
+  top: 40px; 
   left: 0;
   background-color: #f9f9f9;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -232,7 +231,6 @@
   background-color: #ddd;
 }
 
-/* Dodaj hover efekt na meni */
 .menu-container:hover .dropdown-content {
   display: block;
 }
@@ -294,7 +292,6 @@
   gap: 20px;
 }
 
-/* Header */
 header {
   height: 120px;
   display: flex;
@@ -303,29 +300,26 @@ header {
   padding: 0 40px;
 }
 
-/* Stil za logo container */
 .logo {
   display: flex;
-  align-items: center; /* Centriranje vertikalno */
-  gap: 20px; /* Razmak između loga i tekstova */
+  align-items: center;
+  gap: 20px; 
 }
 
-/* Linkovi unutar loga */
 .logo a {
   text-decoration: none;
   color: #333;
-  font-weight: 600; /* Lagano podebljano */
+  font-weight: 600;
   font-size: 18px;
   transition: color 0.3s ease;
 }
 
-/* Postavljanje veličine za sliku */
 .logo img {
-  width: 120px; /* Povećana veličina loga, možeš promijeniti prema želji */
+  width: 120px; 
   height: auto;
 }
 
-/* Hover efekt */
+
 .logo a:hover {
   color: #687616;
 }

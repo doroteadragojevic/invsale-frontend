@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../styles/Stocks.css'; // Stilizacija tablice
+import '../styles/Stocks.css'; 
 import AdminHeader from './AdminMenu';
 
 type Product = {

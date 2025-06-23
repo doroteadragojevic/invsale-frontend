@@ -84,17 +84,16 @@
   border-bottom: 1px dashed #ccc;
 }
 
-/* Optional: color coding */
 .zone-block.closest {
-  background-color: #d4edda; /* green-ish */
+  background-color: #d4edda; 
 }
 
 .zone-block.middle {
-  background-color: #fff3cd; /* yellow-ish */
+  background-color: #fff3cd; 
 }
 
 .zone-block.farthest {
-  background-color: #f8d7da; /* red-ish */
+  background-color: #f8d7da;
 }
 
   
